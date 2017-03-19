@@ -1,16 +1,10 @@
 # Lifelog
 A simple blog based on ASP.NET MVC
 
-English
-![screenshot](https://github.com/ymita/LifeLog/blob/master/images/screenshot_en.png)
-
-Japanese
-![screenshot](https://github.com/ymita/LifeLog/blob/master/images/screenshot_jp.png)
-
 ## Features
 - Blog post dashboard
 - User account management
-- Japanese and English resources
+- Multiple language support (Japanese and English supported so far.)
 - Bootstrap theme with material design
 
 ## Development environment
@@ -18,3 +12,11 @@ Japanese
 - ASP.NET MVC 5
 - .NET Framework 4.5.2
 - SQL Server 2016 (A database file will be generated for the first time the project runs.)
+
+
+English
+![screenshot](https://github.com/ymita/LifeLog/blob/master/images/screenshot_en.png)
+
+Japanese
+![screenshot](https://github.com/ymita/LifeLog/blob/master/images/screenshot_jp.png)
+

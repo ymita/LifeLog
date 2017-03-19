@@ -8,3 +8,4 @@ A simple blog based on ASP.NET MVC
 - Blog post dashboard
 - User account management
 - Japanese and English resources
+- Bootstrap theme with material design

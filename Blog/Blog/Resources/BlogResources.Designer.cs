@@ -70,6 +70,42 @@ namespace Blog.Resources {
         }
         
         /// <summary>
+        ///   Lifelog に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string BlogName {
+            get {
+                return ResourceManager.GetString("BlogName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Contact に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string Contact {
+            get {
+                return ResourceManager.GetString("Contact", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Detail に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string Detail {
+            get {
+                return ResourceManager.GetString("Detail", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Home に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string Home {
+            get {
+                return ResourceManager.GetString("Home", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Log In に類似しているローカライズされた文字列を検索します。
         /// </summary>
         public static string LogIn {

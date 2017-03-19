@@ -4,7 +4,7 @@ A simple blog based on ASP.NET MVC
 ## Features
 - Blog post dashboard
 - User account management
-- Multiple language support (Japanese and English supported so far.)
+- Multiple language support (Japanese and English are supported so far.)
 - Bootstrap theme with material design
 
 ## Development environment

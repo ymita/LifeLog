@@ -120,6 +120,15 @@
   <data name="Archive" xml:space="preserve">
     <value>アーカイブ</value>
   </data>
+  <data name="Contact" xml:space="preserve">
+    <value>連絡先</value>
+  </data>
+  <data name="Detail" xml:space="preserve">
+    <value>詳細</value>
+  </data>
+  <data name="Home" xml:space="preserve">
+    <value>ホーム</value>
+  </data>
   <data name="LogIn" xml:space="preserve">
     <value>ログイン</value>
   </data>

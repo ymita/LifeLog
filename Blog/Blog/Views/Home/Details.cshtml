@@ -22,7 +22,7 @@
     <h2>
         @Html.ActionLink(@Html.DisplayFor(model => model.Title).ToString(), "Details", new { id = @Html.DisplayFor(model => model.ID) })
     </h2>
-    <p><span class="glyphicon glyphicon-time"></span> Posted on @Html.DisplayFor(model => model.Published)</p>
+    <p><span class="glyphicon glyphicon-time"></span> @Blog.Resources.BlogResources.PostedOn @Html.DisplayFor(model => model.Published)</p>
     <hr>
     <p>@Html.Raw(Model.Description.Replace(Environment.NewLine, "<br/>"))</p>
     @*<a class="btn btn-raised btn-warning" href="@Url.Action("Details", "Home", new { id = item.ID })">Read More <span class="glyphicon glyphicon-chevron-right"></span></a>*@

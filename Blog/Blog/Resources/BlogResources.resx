@@ -153,6 +153,9 @@
   <data name="LogOff" xml:space="preserve">
     <value>Log Off</value>
   </data>
+  <data name="PostedOn" xml:space="preserve">
+    <value>Posted on</value>
+  </data>
   <data name="ReadMore" xml:space="preserve">
     <value>Read More </value>
   </data>

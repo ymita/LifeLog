@@ -153,6 +153,9 @@
   <data name="LogOff" xml:space="preserve">
     <value>ログオフ</value>
   </data>
+  <data name="PostedOn" xml:space="preserve">
+    <value>投稿日時</value>
+  </data>
   <data name="ReadMore" xml:space="preserve">
     <value>続きを読む</value>
   </data>

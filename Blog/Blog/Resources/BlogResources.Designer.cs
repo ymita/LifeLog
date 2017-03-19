@@ -169,6 +169,15 @@ namespace Blog.Resources {
         }
         
         /// <summary>
+        ///   Posted on に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string PostedOn {
+            get {
+                return ResourceManager.GetString("PostedOn", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Read More  に類似しているローカライズされた文字列を検索します。
         /// </summary>
         public static string ReadMore {

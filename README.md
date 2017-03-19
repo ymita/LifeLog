@@ -1,8 +1,11 @@
 # Lifelog
 A simple blog based on ASP.NET MVC
 
-![screenshot](https://github.com/ymita/LifeLog/blob/master/images/screenshot.png)
+English
+![screenshot](https://github.com/ymita/LifeLog/blob/master/images/screenshot_en.png)
 
+Japanese
+![screenshot](https://github.com/ymita/LifeLog/blob/master/images/screenshot_jp.png)
 
 ## Features
 - Blog post dashboard

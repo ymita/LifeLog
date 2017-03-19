@@ -126,11 +126,17 @@
   <data name="Contact" xml:space="preserve">
     <value>連絡先</value>
   </data>
+  <data name="Dashboard" xml:space="preserve">
+    <value>管理画面</value>
+  </data>
   <data name="Description" xml:space="preserve">
     <value>オープンソースのブログ</value>
   </data>
   <data name="Detail" xml:space="preserve">
     <value>詳細</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>編集</value>
   </data>
   <data name="Home" xml:space="preserve">
     <value>ホーム</value>
@@ -138,10 +144,16 @@
   <data name="LogIn" xml:space="preserve">
     <value>ログイン</value>
   </data>
+  <data name="LogOff" xml:space="preserve">
+    <value>ログオフ</value>
+  </data>
   <data name="ReadMore" xml:space="preserve">
     <value>続きを読む</value>
   </data>
   <data name="Register" xml:space="preserve">
     <value>登録</value>
+  </data>
+  <data name="Save" xml:space="preserve">
+    <value>保存</value>
   </data>
 </root>

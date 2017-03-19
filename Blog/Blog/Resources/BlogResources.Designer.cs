@@ -88,6 +88,15 @@ namespace Blog.Resources {
         }
         
         /// <summary>
+        ///   Dashboard に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string Dashboard {
+            get {
+                return ResourceManager.GetString("Dashboard", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   An open source blog に類似しているローカライズされた文字列を検索します。
         /// </summary>
         public static string Description {
@@ -102,6 +111,15 @@ namespace Blog.Resources {
         public static string Detail {
             get {
                 return ResourceManager.GetString("Detail", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Edit に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string Edit {
+            get {
+                return ResourceManager.GetString("Edit", resourceCulture);
             }
         }
         
@@ -124,6 +142,15 @@ namespace Blog.Resources {
         }
         
         /// <summary>
+        ///   Log Off に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string LogOff {
+            get {
+                return ResourceManager.GetString("LogOff", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Read More  に類似しているローカライズされた文字列を検索します。
         /// </summary>
         public static string ReadMore {
@@ -138,6 +165,15 @@ namespace Blog.Resources {
         public static string Register {
             get {
                 return ResourceManager.GetString("Register", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Save に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string Save {
+            get {
+                return ResourceManager.GetString("Save", resourceCulture);
             }
         }
     }

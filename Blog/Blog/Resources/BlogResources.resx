@@ -126,11 +126,17 @@
   <data name="Contact" xml:space="preserve">
     <value>Contact</value>
   </data>
+  <data name="Dashboard" xml:space="preserve">
+    <value>Dashboard</value>
+  </data>
   <data name="Description" xml:space="preserve">
     <value>An open source blog</value>
   </data>
   <data name="Detail" xml:space="preserve">
     <value>Detail</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>Edit</value>
   </data>
   <data name="Home" xml:space="preserve">
     <value>Home</value>
@@ -138,10 +144,16 @@
   <data name="LogIn" xml:space="preserve">
     <value>Log In</value>
   </data>
+  <data name="LogOff" xml:space="preserve">
+    <value>Log Off</value>
+  </data>
   <data name="ReadMore" xml:space="preserve">
     <value>Read More </value>
   </data>
   <data name="Register" xml:space="preserve">
     <value>Register</value>
+  </data>
+  <data name="Save" xml:space="preserve">
+    <value>Save</value>
   </data>
 </root>

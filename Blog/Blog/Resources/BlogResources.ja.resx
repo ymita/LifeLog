@@ -117,6 +117,9 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="AllPosts" xml:space="preserve">
+    <value>投稿一覧</value>
+  </data>
   <data name="Archive" xml:space="preserve">
     <value>アーカイブ</value>
   </data>
@@ -125,6 +128,9 @@
   </data>
   <data name="Contact" xml:space="preserve">
     <value>連絡先</value>
+  </data>
+  <data name="Create" xml:space="preserve">
+    <value>新規投稿</value>
   </data>
   <data name="Dashboard" xml:space="preserve">
     <value>管理画面</value>

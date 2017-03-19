@@ -61,6 +61,15 @@ namespace Blog.Resources {
         }
         
         /// <summary>
+        ///   Posts に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string AllPosts {
+            get {
+                return ResourceManager.GetString("AllPosts", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Archive に類似しているローカライズされた文字列を検索します。
         /// </summary>
         public static string Archive {
@@ -84,6 +93,15 @@ namespace Blog.Resources {
         public static string Contact {
             get {
                 return ResourceManager.GetString("Contact", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Create a post に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string Create {
+            get {
+                return ResourceManager.GetString("Create", resourceCulture);
             }
         }
         

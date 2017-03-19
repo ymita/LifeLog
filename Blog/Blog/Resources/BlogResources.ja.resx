@@ -126,6 +126,9 @@
   <data name="Contact" xml:space="preserve">
     <value>連絡先</value>
   </data>
+  <data name="Description" xml:space="preserve">
+    <value>オープンソースのブログ</value>
+  </data>
   <data name="Detail" xml:space="preserve">
     <value>詳細</value>
   </data>

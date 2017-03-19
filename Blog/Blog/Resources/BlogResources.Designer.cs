@@ -88,6 +88,15 @@ namespace Blog.Resources {
         }
         
         /// <summary>
+        ///   An open source blog に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string Description {
+            get {
+                return ResourceManager.GetString("Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Detail に類似しているローカライズされた文字列を検索します。
         /// </summary>
         public static string Detail {

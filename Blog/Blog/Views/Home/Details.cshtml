@@ -1,0 +1,39 @@
+﻿@model Blog.Models.Post
+
+@{
+    ViewBag.Title = "Details";
+}
+<hr />
+
+@*<div class="panel panel-default">
+    <div class="panel-heading">
+        @Html.ActionLink(@Html.DisplayFor(model => model.Title).ToString(), "Details", new { id = @Html.DisplayFor(model => model.ID) })
+    </div>
+    <div class="panel-body">
+        <p>
+            @Html.Raw(Model.Description.Replace(Environment.NewLine, "<br/>"))
+        </p>
+    </div>
+    <div class="panel-footer"><span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>&nbsp;@Html.DisplayFor(model => model.Published)</div>
+</div>*@
+
+
+<section class="well">
+    <h2>
+        @Html.ActionLink(@Html.DisplayFor(model => model.Title).ToString(), "Details", new { id = @Html.DisplayFor(model => model.ID) })
+    </h2>
+    <p><span class="glyphicon glyphicon-time"></span> Posted on @Html.DisplayFor(model => model.Published)</p>
+    <hr>
+    <p>@Html.Raw(Model.Description.Replace(Environment.NewLine, "<br/>"))</p>
+    @*<a class="btn btn-raised btn-warning" href="@Url.Action("Details", "Home", new { id = item.ID })">Read More <span class="glyphicon glyphicon-chevron-right"></span></a>*@
+</section>
+
+
+
+<p>
+    @if (Request.IsAuthenticated)
+    {
+        @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) @Html.Raw("&nbsp;|")
+    }
+    @Html.ActionLink("Back to List", "Index")
+</p>

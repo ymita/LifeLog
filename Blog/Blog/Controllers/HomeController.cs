@@ -17,7 +17,7 @@ namespace Blog.Controllers
 
         public HomeController()
         {
-            _dataService = new DataService();
+            _dataService = DataService.Instance;// new DataService();
         }
         // GET: Posts
         public ActionResult Index(int? index)

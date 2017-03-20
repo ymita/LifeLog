@@ -126,6 +126,9 @@
   <data name="BlogName" xml:space="preserve">
     <value>Lifelog</value>
   </data>
+  <data name="Configuration" xml:space="preserve">
+    <value>設定</value>
+  </data>
   <data name="Contact" xml:space="preserve">
     <value>連絡先</value>
   </data>

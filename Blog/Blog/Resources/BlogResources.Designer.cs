@@ -88,6 +88,15 @@ namespace Blog.Resources {
         }
         
         /// <summary>
+        ///   Configuration に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string Configuration {
+            get {
+                return ResourceManager.GetString("Configuration", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Contact に類似しているローカライズされた文字列を検索します。
         /// </summary>
         public static string Contact {

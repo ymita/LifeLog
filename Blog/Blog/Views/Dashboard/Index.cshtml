@@ -1,29 +1,39 @@
 ﻿
 @{
-    ViewBag.Title = "Dashboard View";
+    ViewBag.Title = @Blog.Resources.BlogResources.Dashboard;
 }
 
-<style type="text/css">
+<div class="container">
+    <div class="row">
+        <!-- Blog Sidebar Widgets Column -->
+        <div class="col-sm-3">
+            <!-- Blog Categories Well -->
+            <div class="well">
+                <h4>@Blog.Resources.BlogResources.Dashboard</h4>
+                <div class="row">
+                    <div class="col-lg-6">
+                        <ul class="list-unstyled"></ul>
+                        @Html.Partial("_DashboardPartial", null)
+                    </div>
+                    <!-- /.col-lg-6 -->
+                </div>
+                <!-- /.row -->
+            </div>
+        </div>
+        <div class="col-sm-9">
 
-</style>
-<h2>Dashboard</h2>
+            <section class="well">
+                <h2>
+                    text here
+                </h2>
+                
+                <p>text 2 here</p>
+            </section>
 
-@*<ul>
-    <li>@Html.ActionLink("新規投稿", "Create", "Dashboard")</li>
-    <li>@Html.ActionLink("投稿一覧", "AllPosts", "Dashboard")</li>
+        </div>
+        
+    </div>
 
-</ul>*@
+</div>
 
-<!-- Single line list with icons -->
-@*https://material.io/icons/*@
-@*http://propeller.in/components/list.php*@
-<ul class="list-group pmd-z-depth pmd-list pmd-card-list pmd-list-icon">
-    <li class="list-group-item">
-        <i class="material-icons media-left pmd-sm">list</i>
-        <span class="media-body">@Html.ActionLink(@Blog.Resources.BlogResources.Create, "Create", "Dashboard")</span>
-    </li>
-    <li class="list-group-item">
-        <i class="material-icons media-left pmd-sm">create</i>
-        <span class="media-body">@Html.ActionLink(@Blog.Resources.BlogResources.AllPosts, "AllPosts", "Dashboard")</span>
-    </li>
-</ul>
+

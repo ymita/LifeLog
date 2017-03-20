@@ -1,0 +1,17 @@
+﻿<!-- Single line list with icons -->
+@*https://material.io/icons/*@
+@*http://propeller.in/components/list.php*@
+<ul class="list-group pmd-z-depth pmd-list pmd-card-list pmd-list-icon">
+    <li class="list-group-item">
+        <i class="material-icons media-left pmd-sm">list</i>
+        <span class="media-body">@Html.ActionLink(@Blog.Resources.BlogResources.Create, "Create", "Dashboard")</span>
+    </li>
+    <li class="list-group-item">
+        <i class="material-icons media-left pmd-sm">create</i>
+        <span class="media-body">@Html.ActionLink(@Blog.Resources.BlogResources.AllPosts, "AllPosts", "Dashboard")</span>
+    </li>
+    <li class="list-group-item">
+        <i class="material-icons media-left pmd-sm">create</i>
+        <span class="media-body">@Html.ActionLink(@Blog.Resources.BlogResources.Configuration, "Configuration", "Dashboard")</span>
+    </li>
+</ul>

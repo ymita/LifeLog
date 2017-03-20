@@ -144,6 +144,11 @@ namespace Blog.Controllers
             return RedirectToAction("Index");
         }
 
+        public ActionResult Configuration()
+        {
+            return View();
+        }
+
         [HttpPost]
         public ActionResult Dashboard()
         {

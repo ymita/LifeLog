@@ -6,11 +6,23 @@ using System.Web;
 
 namespace Blog.Services
 {
-    public class DataService : IDataService
+    /// <summary>
+    /// Description of DataService.
+    /// </summary>
+    public sealed class DataService : IDataService
     {
-        public DataService()
-        {
+        private static DataService instance = new DataService();
 
+        public static DataService Instance
+        {
+            get
+            {
+                return instance;
+            }
+        }
+
+        private DataService()
+        {
         }
 
         private ILookup<DateTime, Post> _ordersByYearMonth;
@@ -32,10 +44,20 @@ namespace Blog.Services
             {
                 _yearmonthList.Add(item.Key, item.Count());
             }
-            
+
             #endregion
 
             return _yearmonthList;
         }
     }
+
+    //public class DataService : IDataService
+    //{
+    //    //public DataService()
+    //    //{
+
+    //    //}
+
+        
+    //}
 }

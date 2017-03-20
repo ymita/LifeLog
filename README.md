@@ -13,7 +13,7 @@ A simple blog based on ASP.NET MVC
 - .NET Framework 4.5.2
 - SQL Server 2016 (A database file will be generated for the first time the project runs.)
 
-
+## Screenshot
 English
 ![screenshot](https://github.com/ymita/LifeLog/blob/master/images/screenshot_en.png)
 

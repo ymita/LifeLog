@@ -42,7 +42,10 @@ namespace Blog.Services
             // 年月ごとの記事数を算出
             foreach (var item in _ordersByYearMonth)
             {
-                _yearmonthList.Add(item.Key, item.Count());
+                //if (!_yearmonthList.Keys.Contains(item.Key))
+                //{
+                    _yearmonthList.Add(item.Key, item.Count());
+                //}
             }
 
             #endregion

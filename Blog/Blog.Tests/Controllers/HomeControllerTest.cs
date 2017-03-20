@@ -13,13 +13,13 @@ namespace Blog.Tests.Controllers
     public class HomeControllerTest
     {
         [TestMethod]
-        public void AboutTest()
+        public void Dashboard()
         {
             // Arrange
             HomeController controller = new HomeController();
             
             // Act
-            ViewResult result = controller.About() as ViewResult;
+            ViewResult result = controller.Dashboard() as ViewResult;
 
             // Assert
             Assert.IsNotNull(result);

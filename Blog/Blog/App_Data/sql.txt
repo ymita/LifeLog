@@ -1,0 +1,2 @@
+-- 有効なベンダー一覧
+select * from vendor_master where contract_date > CURDATE();

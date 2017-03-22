@@ -76,7 +76,7 @@ namespace Blog.Controllers
             int year = int.Parse(yearMonth[0]);
             int month = int.Parse(yearMonth[1]);
 
-            var listOfDate = db.Posts.Where(p => p.Published.Year == year && p.Published.Month == month).ToList();
+            var listOfDate = db.Posts.Where(p => p.Published.Year == year && p.Published.Month == month).OrderByDescending(item=>item.Published).ToList();
 
             return View("Index", listOfDate);
         }

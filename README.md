@@ -20,3 +20,5 @@ English
 Japanese
 ![screenshot](https://github.com/ymita/LifeLog/blob/master/images/screenshot_jp.png)
 
+Dashboard
+![screenshot](https://github.com/ymita/LifeLog/blob/master/images/screenshot_jp2.png)

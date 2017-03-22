@@ -1,19 +1,19 @@
 ﻿@model Blog.Models.ExternalLoginListViewModel
 @using Microsoft.Owin.Security
 
-<h4>別のサービスを使用してログインしてください。</h4>
-<hr />
+@*<h4>別のサービスを使用してログインしてください。</h4>
+<hr />*@
 @{
     var loginProviders = Context.GetOwinContext().Authentication.GetExternalAuthenticationTypes();
-    if (loginProviders.Count() == 0) {
-        <div>
+    //if (loginProviders.Count() == 0) {
+        @*<div>
             <p>
                 構成済みの外部認証サービスはありません。外部サービス経由のログインをサポートするようにこの ASP.NET アプリケーションを設定する方法の
                 詳細については、<a href="http://go.microsoft.com/fwlink/?LinkId=403804">こちらの記事</a>をご覧ください。
             </p>
-        </div>
-    }
-    else {
+        </div>*@
+    @*}*@
+    //else {
         using (Html.BeginForm("ExternalLogin", "Account", new { ReturnUrl = Model.ReturnUrl })) {
             @Html.AntiForgeryToken()
             <div id="socialLoginList">
@@ -24,5 +24,5 @@
                 </p>
             </div>
         }
-    }
+    //}
 }

@@ -47,7 +47,7 @@ namespace Blog.Controllers
             ViewBag.Pages = (articleCount % pageCount == 0) ? articleCount / pageCount : (articleCount / pageCount) + 1;
             //ViewBag.Pages = articleCount / pageCount;
             // 記事を取得
-            List<Post> list = db.Posts.OrderBy(a => a.ID).Skip(_startIndex).Take(_endIndex - _startIndex).ToList();
+            List<Post> list = db.Posts.OrderByDescending(a => a.ID).Skip(_startIndex).Take(_endIndex - _startIndex).ToList();
 
             int charCount = 100;
             for (int i = 0; i < list.Count; i++)

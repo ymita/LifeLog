@@ -14,7 +14,8 @@ A simple blog based on ASP.NET MVC
 - SQL Server 2016 (A database file will be generated for the first time the project runs.)
 
 ## Configuration
-- By default, a database file is created under App_Data folder. If you want to create it in the folder that your SQL Server references, please update connection string in Web.config. Please refer to Web.config for details.
+- Database
+  - By default, a database file is created under App_Data folder. If you want to create it in the folder that your SQL Server references, please update connection string in Web.config. Please refer to Web.config for details.
 
 
 ## Screenshot

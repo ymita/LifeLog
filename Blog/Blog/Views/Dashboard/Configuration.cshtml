@@ -1,4 +1,6 @@
-﻿@{
+﻿@model Blog.Models.Dashboard
+
+@{
     ViewBag.Title = @Blog.Resources.BlogResources.Configuration;
 }
 
@@ -25,7 +27,7 @@
         </div>
         <div class="col-sm-9">
             <section class="well">
-                @using (Html.BeginForm())
+                @using (Html.BeginForm("Update", "Dashboard"))
                 {
                     @Html.AntiForgeryToken()
 
@@ -37,7 +39,9 @@
                         <div class="form-group">
                             @Html.Label("Description", htmlAttributes: new { @class = "control-label col-md-2" })
                             <div class="col-md-10">
+                                @Html.LabelFor(model => model.Description, htmlAttributes: new { @class = "control-label col-md-2" })
                                 Find out a way to bind Description text, and allow end users to update it.
+                                @Html.EditorFor(model => model.Description, new { htmlAttributes = new { @class = "form-control" } })
                                 @*@Html.Editor("txtValue", @Blog.Resources.BlogResources.Description, new { placeholder = "Input value" })
                                 @Html.Editor("description", @Blog.Resources.BlogResources.Description, new { htmlAttributes = new { @class = "form-control" } })
                                 @Html.ValidationMessage(@Blog.Resources.BlogResources.Description, "", new { @class = "text-danger" })*@

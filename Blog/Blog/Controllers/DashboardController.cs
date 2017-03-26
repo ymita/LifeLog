@@ -146,7 +146,16 @@ namespace Blog.Controllers
 
         public ActionResult Configuration()
         {
-            return View();
+            var dashboardInfo = db.Dashboards.First();
+            return View(dashboardInfo);
+        }
+
+        public ActionResult Update(string description)
+        {
+            db.Dashboards.First().Description = description;
+            db.SaveChanges();
+            var dashboardInfo = db.Dashboards.First();
+            return View("Configuration", dashboardInfo);
         }
 
         [HttpPost]

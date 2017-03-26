@@ -13,12 +13,12 @@ namespace Blog.Models
 
             Tag tag1 = new Tag();
             tag1.ID = 1;
-            tag1.Name = "テストタグ1";
+            tag1.Name = "Test tag 1";
             tags.Add(tag1);
 
             Tag tag2 = new Tag();
             tag2.ID = 2;
-            tag2.Name = "テストタグ2";
+            tag2.Name = "Test tag 2";
             tags.Add(tag2);
 
             var posts = new List<Post>
@@ -26,9 +26,9 @@ namespace Blog.Models
                 new Post
                 {
                     ID = 1,
-                    Title = "最初の投稿",
-                    Description = "最初の投稿です。",
-                    Published = DateTime.Parse("2016-04-10"),
+                    Title = "First post",
+                    Description = "This is the first post.",
+                    Published = DateTime.Parse("2017-01-10"),
                     Tags = tags
                 },
             };

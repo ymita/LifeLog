@@ -79,7 +79,8 @@ namespace Blog.Controllers
             switch (result)
             {
                 case SignInStatus.Success:
-                    return RedirectToLocal(returnUrl);
+                    //Redirect to Dashboard after login
+                    return RedirectToAction("Index", "Dashboard");
                 case SignInStatus.LockedOut:
                     return View("Lockout");
                 case SignInStatus.RequiresVerification:

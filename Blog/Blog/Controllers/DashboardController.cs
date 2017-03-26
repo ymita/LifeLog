@@ -155,7 +155,7 @@ namespace Blog.Controllers
             db.Dashboards.First().Description = description;
             db.SaveChanges();
             var dashboardInfo = db.Dashboards.First();
-            ViewBag.Description = dashboardInfo.Description;
+            //ViewBag.Description = dashboardInfo.Description;
             return View("Configuration", dashboardInfo);
         }
 

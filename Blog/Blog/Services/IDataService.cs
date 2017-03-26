@@ -10,5 +10,7 @@ namespace Blog.Services
     interface IDataService
     {
         Dictionary<DateTime, int> getYearMonthList(DataContext db);
+
+        //string getDescription(DataContext db);
     }
 }

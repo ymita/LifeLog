@@ -17,7 +17,14 @@ namespace Blog.Controllers
 
         public HomeController()
         {
-            _dataService = DataService.Instance;// new DataService();
+            _dataService = DataService.Instance;
+
+            // TO DO: This should be done via DataService.Instance
+            string description = db.Dashboards.First().Description.ToString();
+            if(description != null)
+            {
+                ViewBag.Description = description;
+            }
         }
         // GET: Posts
         public ActionResult Index(int? index)

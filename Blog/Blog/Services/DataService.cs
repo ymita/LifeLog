@@ -52,6 +52,17 @@ namespace Blog.Services
 
             return _yearmonthList;
         }
+
+        //public string getDescription(DataContext db)
+        //{
+            
+        //    if (db.Dashboards.Count() > 1)
+        //    {
+        //        var description = db.Dashboards.First().Description;
+        //        return description;
+        //    }
+        //    return "error";
+        //}
     }
 
     //public class DataService : IDataService

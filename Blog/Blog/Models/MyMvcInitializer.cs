@@ -21,16 +21,23 @@ namespace Blog.Models
             tag2.Name = "テストタグ2";
             tags.Add(tag2);
 
-            var posts = new List<Post> {
-                new Post { ID = 1,
-
-                           Title = "最初の投稿",
-                           Description = "最初の投稿です。",
-                           Published = DateTime.Parse("2016-04-10"),
-                           Tags = tags
+            var posts = new List<Post>
+            {
+                new Post
+                {
+                    ID = 1,
+                    Title = "最初の投稿",
+                    Description = "最初の投稿です。",
+                    Published = DateTime.Parse("2016-04-10"),
+                    Tags = tags
                 },
             };
-            var dashboard = new Dashboard { Id = 0, Description = "This is a blog about xxx." };
+
+            var dashboard = new Dashboard
+            {
+                Id = 0,
+                Description = "This is a blog about xxx."
+            };
             posts.ForEach(b => context.Posts.Add(b));
             context.Dashboards.Add(dashboard);
             context.SaveChanges();

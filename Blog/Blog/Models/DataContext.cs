@@ -15,12 +15,16 @@ namespace Blog.Models
         public virtual DbSet<Post> Posts { get; set; }
         public virtual DbSet<Tag> Tags { get; set; }
 
+        public virtual DbSet<Dashboard> Dashboards { get; set; }
+
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Post>()
                 .HasMany(e => e.Tags)
                 .WithOptional(e => e.Post)
                 .HasForeignKey(e => e.Post_ID);
+
+            modelBuilder.Entity<Dashboard>();
         }
     }
 }

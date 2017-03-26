@@ -30,7 +30,9 @@ namespace Blog.Models
                            Tags = tags
                 },
             };
+            var dashboard = new Dashboard { Id = 0, Description = "This is a blog about xxx." };
             posts.ForEach(b => context.Posts.Add(b));
+            context.Dashboards.Add(dashboard);
             context.SaveChanges();
         }
     }

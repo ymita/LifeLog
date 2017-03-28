@@ -2,10 +2,42 @@
 @{
     ViewBag.Title = @Blog.Resources.BlogResources.AllPosts;
 }
-
+<style>
+    .btn, .input-group-btn .btn{
+        margin:0px;
+    }
+</style>
 <h2>@Blog.Resources.BlogResources.AllPosts</h2>
 
 <div class="container">
+
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <!--Content-->
+            <div class="modal-content">
+                <!--Header-->
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <h4 class="modal-title w-100" id="myModalLabel">Modal title</h4>
+                </div>
+                <!--Body-->
+                <div class="modal-body">
+                    ...
+                </div>
+                <!--Footer-->
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+            </div>
+            <!--/.Content-->
+        </div>
+    </div>
+    <!-- /.Live preview-->
+
     <div class="row">
         <!-- Blog Sidebar Widgets Column -->
         <div class="col-sm-3">
@@ -31,6 +63,7 @@
                             <th>Post ID</th>
                             <th>タイトル</th>
                             <th>登録日</th>
+                            <th>操作</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -40,6 +73,12 @@
                                 <th scope="row">@item.ID</th>
                                 <td>@Html.ActionLink(@Html.DisplayFor(modelItem => item.Title).ToString(), "Edit", new { id = item.ID })</td>
                                 <td>@item.Published</td>
+                                <td>
+                                    <!-- Button trigger modal -->
+                                    <button type="button" class="btn btn-primary btn-xs" data-toggle="modal" data-target="#myModal">
+                                        X
+                                    </button>
+                                </td>
                             </tr>
                         }
                     </tbody>
@@ -73,3 +112,6 @@
         </div>
     </div>
 </div>
+
+
+

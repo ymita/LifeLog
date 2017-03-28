@@ -22,6 +22,7 @@
                     <a class="btn btn-raised btn-warning" href="@Url.Action("Details", "Home", new { id = item.ID })">@Blog.Resources.BlogResources.ReadMore<span class="glyphicon glyphicon-chevron-right"></span></a>
                 </section>
             }
+
             @*Show a link to Create action when no post exists.*@
             @if (Model.Count() == 0)
             {

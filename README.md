@@ -15,7 +15,7 @@ A simple blog based on ASP.NET MVC
 
 ## Configuration
 - Database
-  - By default, a database file is created under App_Data folder. If you want to create it in the folder that your SQL Server references, please update connection string in Web.config. Please refer to Web.config for details.
+  - By default, a database file(Lifelog.mdf) is stored under App_Data folder. If you want to create a new one, delete Lifelog.mdf and then restart the application. If you want to create it in the folder that your SQL Server references, please update connection string in Web.config. Please refer to Web.config for details.
 
 
 ## Screenshot

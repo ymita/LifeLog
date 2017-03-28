@@ -45,6 +45,10 @@ namespace Blog.Controllers
             int _endIndex = _startIndex + _pageCount;
 
 
+            if(db.Posts != null)
+            {
+
+            }
             // ページャー用に記事総数を設定
             int _articleCount = db.Posts.Count();
             

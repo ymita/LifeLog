@@ -17,13 +17,8 @@ namespace Blog.Controllers
         public ActionResult Index()
         {
             return RedirectToAction("AllPosts");
-            //return View();
         }
 
-        //public ActionResult AllPosts()
-        //{
-        //    return View();
-        //}
         public ActionResult AllPosts(int? index)
         {
             int _startIndex = 0;
@@ -156,7 +151,6 @@ namespace Blog.Controllers
             db.Dashboards.First().Description = description;
             db.SaveChanges();
             var dashboardInfo = db.Dashboards.First();
-            //ViewBag.Description = dashboardInfo.Description;
             return View("Configuration", dashboardInfo);
         }
 

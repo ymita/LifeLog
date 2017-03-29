@@ -16,7 +16,8 @@ namespace Blog.Controllers
         // GET: Dashboard
         public ActionResult Index()
         {
-            return View();
+            return RedirectToAction("AllPosts");
+            //return View();
         }
 
         //public ActionResult AllPosts()
@@ -81,7 +82,7 @@ namespace Blog.Controllers
             {
                 db.Posts.Add(post);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("AllPosts");
             }
 
             return View(post);
@@ -141,7 +142,7 @@ namespace Blog.Controllers
             Post post = db.Posts.Find(id);
             db.Posts.Remove(post);
             db.SaveChanges();
-            return RedirectToAction("Index");
+            return RedirectToAction("AllPosts");
         }
 
         public ActionResult Configuration()

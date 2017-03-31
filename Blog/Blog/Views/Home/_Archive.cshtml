@@ -1,0 +1,54 @@
+﻿<!-- Blog Sidebar Widgets Column -->
+<div class="col-sm-3">
+    <!-- Blog Categories Well -->
+    <div class="well">
+        <h4>@Blog.Resources.BlogResources.Archive</h4>
+        <div class="row">
+            <div class="col-lg-9">
+                <ul class="list-unstyled">
+                    @{
+                        List<int> uniqueYearLabel = new List<int>();
+                        Dictionary<DateTime, int> yearList = ViewData["yearList"] as Dictionary<DateTime, int>;
+                        if (yearList != null)
+                        {
+                            foreach (var item in yearList)
+                            {
+                                if (!uniqueYearLabel.Contains(item.Key.Year))
+                                {
+                                    uniqueYearLabel.Add(item.Key.Year);
+                                }
+                            }
+
+                            var yearmonthlist = yearList.GroupBy(p => new { p.Key.Year, p.Key.Month });
+
+                            // uniquelist loop
+                            foreach (var label in uniqueYearLabel)
+                            {
+                                @Html.Raw("<li>")
+                                @Html.Raw(label)
+
+                                foreach (var dic in yearList)
+                                {
+                                    @Html.Raw("<ul>")
+                                    if (label == dic.Key.Year)
+                                    {
+                                        @Html.Raw("<li>")
+                                        @Html.ActionLink(dic.Key.ToString("MMMM"), "Date", new { id = dic.Key.ToString("yyyy-MM") })
+                                        @Html.Raw(" (" + dic.Value.ToString() + ")")
+
+
+                                        @Html.Raw("</li>")
+                                    }
+                                    @Html.Raw("</ul>")
+                                }
+                                @Html.Raw("</li>")
+                            }
+                        }
+                    }
+                </ul>
+            </div>
+            <!-- /.col-lg-6 -->
+        </div>
+        <!-- /.row -->
+    </div>
+</div>

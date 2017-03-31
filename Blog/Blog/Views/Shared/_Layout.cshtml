@@ -30,11 +30,20 @@
                 @Html.ActionLink(@Blog.Resources.BlogResources.BlogName, "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
             </div>
             <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink(@Blog.Resources.BlogResources.Detail, "About", "Home")</li>
-                    <li>@Html.ActionLink(@Blog.Resources.BlogResources.Contact, "Contact", "Home")</li>
-
-                </ul>
+                @*Hide "Detail" and "Contact" links while viewing Dashboard page*@
+                @{
+                    HttpRequestWrapper request = Request as HttpRequestWrapper;
+                    if (request != null)
+                    {
+                        if (!request.Path.Contains("Dashboard"))
+                        {
+                            <ul class="nav navbar-nav">
+                                <li>@Html.ActionLink(@Blog.Resources.BlogResources.Detail, "About", "Home")</li>
+                                <li>@Html.ActionLink(@Blog.Resources.BlogResources.Contact, "Contact", "Home")</li>
+                            </ul>
+                        }
+                    }
+                }
                 @Html.Partial("_LoginPartial")
             </div>
         </div>

@@ -71,7 +71,7 @@ namespace Blog.Controllers
         // 詳細については、http://go.microsoft.com/fwlink/?LinkId=317598 を参照してください。
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,Title,Description,Published")] Post post)
+        public ActionResult Create([Bind(Include = "ID,Title,Description,Published,IsDraft")] Post post)
         {
             if (ModelState.IsValid)
             {
@@ -103,7 +103,7 @@ namespace Blog.Controllers
         // 詳細については、http://go.microsoft.com/fwlink/?LinkId=317598 を参照してください。
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,Title,Description,Published")] Post post)
+        public ActionResult Edit([Bind(Include = "ID,Title,Description,Published,IsDraft")] Post post)
         {
             if (ModelState.IsValid)
             {

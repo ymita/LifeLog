@@ -223,10 +223,6 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_Data\Lifelog.mdf" />
-    <Content Include="App_Data\Lifelog_log.ldf">
-      <DependentUpon>Lifelog.mdf</DependentUpon>
-    </Content>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="favicon.ico" />
@@ -292,6 +288,7 @@
     <Content Include="Views\Dashboard\Configuration.cshtml" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="App_Data\" />
     <Folder Include="Views\Search\" />
   </ItemGroup>
   <ItemGroup>

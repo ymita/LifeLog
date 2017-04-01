@@ -29,6 +29,7 @@ namespace Blog.Models
                     Title = "First post",
                     Description = "This is the first post.",
                     Published = DateTime.Parse("2017-01-10"),
+                    IsDraft = false,
                     Tags = tags
                 },
             };

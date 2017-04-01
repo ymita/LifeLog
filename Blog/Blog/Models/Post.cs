@@ -21,6 +21,8 @@ namespace Blog.Models
         public string Description { get; set; }
 
         public DateTime Published { get; set; }
+        
+        public bool IsDraft { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Tag> Tags { get; set; }

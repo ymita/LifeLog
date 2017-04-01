@@ -1,0 +1,16 @@
+﻿<!-- Blog Sidebar Widgets Column -->
+<div class="col-sm-3">
+    <!-- Blog Categories Well -->
+    <div class="well">
+        <h4>@Blog.Resources.BlogResources.Search</h4>
+        <div class="row">
+            <div class="col-lg-9">
+                    @using (Html.BeginForm("Search", "Home", FormMethod.Get, new { @class = "form-inline" }))
+                    {
+                        @Html.TextBox("keyword", null, new { @class = "form-control" })
+                        <input type="submit" value="検索" class="btn btn-raised btn-warning"/>
+                    }
+            </div>
+        </div>
+    </div>
+</div>

@@ -195,6 +195,19 @@ namespace Blog.Controllers
             return View("Dashboard");
         }
 
+        [HttpGet]
+        public ActionResult Search(string keyword)
+        {
+            IList<Post> posts = new List<Post>();
+
+            if (!string.IsNullOrEmpty(keyword))
+            {
+                posts = db.Posts.Where(p => p.Description.Contains(keyword)).ToList();
+            }
+
+            return View("Index", posts);
+        }
+
         protected override void Dispose(bool disposing)
         {
             if (disposing)

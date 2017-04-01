@@ -292,7 +292,9 @@
     <Content Include="Views\Dashboard\_DashboardPartial.cshtml" />
     <Content Include="Views\Dashboard\Configuration.cshtml" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Views\Search\" />
+  </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
@@ -301,6 +303,7 @@
     <None Include="Project_Readme.html" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
     <Content Include="Views\Home\_Archive.cshtml" />
+    <Content Include="Views\Home\_Search.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Resources\BlogResources.ja.resx" />

@@ -218,8 +218,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>BlogResources.resx</DependentUpon>
     </Compile>
-    <Compile Include="Services\DataService.cs" />
-    <Compile Include="Services\IDataService.cs" />
+    <Compile Include="Services\Utils.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>

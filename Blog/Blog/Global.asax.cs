@@ -20,5 +20,13 @@ namespace Blog
             Database.SetInitializer<DataContext>(new MyMvcInitializer());
             BundleConfig.RegisterBundles(BundleTable.Bundles);
         }
+
+        protected void Application_EndRequest()
+        {
+            if (DataContext.HasCurrent)
+            {
+                DataContext.Current.Dispose();
+            }
+        }
     }
 }

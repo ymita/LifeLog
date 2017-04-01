@@ -55,67 +55,29 @@ namespace Blog.Services
             return _yearmonthList;
         }
 
-        public DbSet<Post> getPosts()
-        {
-            return db.Posts;
-            throw new NotImplementedException();
-        }
-
-        public bool savePost(Post post)
-        {
-            bool result = false;
-            try
-            {
-                db.Posts.Add(post);
-                db.SaveChanges();
-                result = true;
-                return result;
-            }
-            catch(Exception ex)
-            {
-                System.Diagnostics.Debug.WriteLine(ex.Message);
-            }
-            return result;
-        }
-
-        //public void Dispose()
+        //public DbSet<Post> getPosts()
         //{
-        //    Dispose(true);
-        //    GC.SuppressFinalize(this);
+        //    return db.Posts;
+        //    throw new NotImplementedException();
         //}
 
-        //void Dispose(bool disposing)
+        //public bool savePost(Post post)
         //{
-        //    if (disposing)
+        //    bool result = false;
+        //    try
         //    {
-        //        db.Dispose();
+        //        db.Posts.Add(post);
+        //        db.SaveChanges();
+        //        result = true;
+        //        return result;
         //    }
-        //}
-
-        //~DataService()
-        //{
-        //    Dispose(false);
-        //}
-
-        //public string getDescription(DataContext db)
-        //{
-
-        //    if (db.Dashboards.Count() > 1)
+        //    catch(Exception ex)
         //    {
-        //        var description = db.Dashboards.First().Description;
-        //        return description;
+        //        System.Diagnostics.Debug.WriteLine(ex.Message);
         //    }
-        //    return "error";
+        //    return result;
         //}
+
     }
 
-    //public class DataService : IDataService
-    //{
-    //    //public DataService()
-    //    //{
-
-    //    //}
-
-        
-    //}
 }

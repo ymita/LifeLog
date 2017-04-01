@@ -12,12 +12,12 @@ namespace Blog.Controllers
 {
     public class DashboardController : Controller
     {
-        private DataContext db = new DataContext();
-        IDataService _dataService;
+        //private DataContext db = new DataContext();
+        //IDataService _dataService;
 
         public DashboardController()
         {
-            _dataService = DataService.Instance;
+            //_dataService = DataService.Instance;
         }
 
         // GET: Dashboard
@@ -45,12 +45,12 @@ namespace Blog.Controllers
 
 
             // ページャー用に記事総数を設定
-            int articleCount = db.Posts.Count();
+            int articleCount = DataContext.Current.Posts.Count();
             //classify = (input > 0) ? "positive" : "negative";
             ViewBag.Pages = (articleCount % pageCount == 0) ? articleCount / pageCount : (articleCount / pageCount) + 1;
             //ViewBag.Pages = articleCount / pageCount;
             // 記事を取得
-            List<Post> list = db.Posts.OrderByDescending(a => a.ID).Skip(_startIndex).Take(_endIndex - _startIndex).ToList();
+            List<Post> list = DataContext.Current.Posts.OrderByDescending(a => a.ID).Skip(_startIndex).Take(_endIndex - _startIndex).ToList();
 
             int charCount = 100;
             for (int i = 0; i < list.Count; i++)
@@ -82,8 +82,8 @@ namespace Blog.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Posts.Add(post);
-                db.SaveChanges();
+                DataContext.Current.Posts.Add(post);
+                DataContext.Current.SaveChanges();
                 return RedirectToAction("AllPosts");
             }
 
@@ -97,7 +97,7 @@ namespace Blog.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Post post = db.Posts.Find(id);
+            Post post = DataContext.Current.Posts.Find(id);
             if (post == null)
             {
                 return HttpNotFound();
@@ -114,8 +114,8 @@ namespace Blog.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Entry(post).State = EntityState.Modified;
-                db.SaveChanges();
+                DataContext.Current.Entry(post).State = EntityState.Modified;
+                DataContext.Current.SaveChanges();
                 return RedirectToAction("AllPosts");
             }
             return View(post);
@@ -128,7 +128,7 @@ namespace Blog.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Post post = db.Posts.Find(id);
+            Post post = DataContext.Current.Posts.Find(id);
             if (post == null)
             {
                 return HttpNotFound();
@@ -141,23 +141,23 @@ namespace Blog.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Post post = db.Posts.Find(id);
-            db.Posts.Remove(post);
-            db.SaveChanges();
+            Post post = DataContext.Current.Posts.Find(id);
+            DataContext.Current.Posts.Remove(post);
+            DataContext.Current.SaveChanges();
             return RedirectToAction("AllPosts");
         }
 
         public ActionResult Configuration()
         {
-            var dashboardInfo = db.Dashboards.First();
+            var dashboardInfo = DataContext.Current.Dashboards.First();
             return View(dashboardInfo);
         }
 
         public ActionResult Update(string description)
         {
-            db.Dashboards.First().Description = description;
-            db.SaveChanges();
-            var dashboardInfo = db.Dashboards.First();
+            DataContext.Current.Dashboards.First().Description = description;
+            DataContext.Current.SaveChanges();
+            var dashboardInfo = DataContext.Current.Dashboards.First();
             return View("Configuration", dashboardInfo);
         }
 
@@ -169,13 +169,13 @@ namespace Blog.Controllers
             return View("Dashboard");
         }
 
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing)
-            {
-                db.Dispose();
-            }
-            base.Dispose(disposing);
-        }
+        //protected override void Dispose(bool disposing)
+        //{
+        //    if (disposing)
+        //    {
+        //        db.Dispose();
+        //    }
+        //    base.Dispose(disposing);
+        //}
     }
 }

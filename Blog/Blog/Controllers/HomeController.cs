@@ -12,15 +12,14 @@ namespace Blog.Controllers
 {
     public class HomeController : Controller
     {
-        private DataContext db = new DataContext();
-        IDataService _dataService;
+        //private DataContext db = new DataContext();
+        //IDataService _dataService;
 
         public HomeController()
         {
-            _dataService = DataService.Instance;
-
-            // TO DO: This should be done via DataService.Instance
-            string description = db.Dashboards.First().Description.ToString();
+            //_dataService = DataService.Instance;
+            
+            string description = DataContext.Current.Dashboards.First().Description.ToString();
             if(description != null)
             {
                 ViewBag.Description = description;
@@ -44,13 +43,13 @@ namespace Blog.Controllers
 
             int _endIndex = _startIndex + _pageCount;
 
-
-            if(db.Posts != null)
+            
+            if (DataContext.Current.Posts != null)
             {
 
             }
             // ページャー用に記事総数を設定
-            int _articleCount = db.Posts.Count();
+            int _articleCount = DataContext.Current.Posts.Count();
             
             // 記事数がページ数で割った際に、端数があれば追加で１ページを追加する
             // （例：合計６記事あり、１ページあたり５記事を表示する場合、更に１ページを追加して６記事目を表示するため。）
@@ -58,11 +57,12 @@ namespace Blog.Controllers
 
             #region 年月と対応する記事数のリストをクライアントに渡す。
             // 年月と対応する記事数の Dictionary をクライアントに渡す。
-            ViewData["yearList"] = _dataService.getYearMonthList();
+            //ViewData["yearList"] = _dataService.getYearMonthList();
+            ViewData["yearList"] = Utils.getYearMonthList();
             #endregion
 
             // 記事を取得
-            List<Post> _list = db.Posts.OrderByDescending(a => a.Published).Skip(_startIndex).Take(_endIndex - _startIndex).ToList();
+            List<Post> _list = DataContext.Current.Posts.OrderByDescending(a => a.Published).Skip(_startIndex).Take(_endIndex - _startIndex).ToList();
             // 記事の部分表示
             int charCount = 200;
             for (int i = 0; i < _list.Count; i++)
@@ -81,13 +81,13 @@ namespace Blog.Controllers
         public ActionResult Date(string id)
         {
             // 年月と対応する記事数の Dictionary をクライアントに渡す。
-            ViewData["yearList"] = _dataService.getYearMonthList();
+            ViewData["yearList"] = Utils.getYearMonthList();
 
             string[] yearMonth = id.Split('-');
             int year = int.Parse(yearMonth[0]);
             int month = int.Parse(yearMonth[1]);
 
-            var listOfDate = db.Posts.Where(p => p.Published.Year == year && p.Published.Month == month).OrderByDescending(item=>item.Published).ToList();
+            var listOfDate = DataContext.Current.Posts.Where(p => p.Published.Year == year && p.Published.Month == month).OrderByDescending(item=>item.Published).ToList();
 
             return View("Index", listOfDate);
         }
@@ -97,101 +97,18 @@ namespace Blog.Controllers
             if (id == null)
             {
                 id = 1;
-                //return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Post post = db.Posts.Find(id);
+            Post post = DataContext.Current.Posts.Find(id);
             if (post == null)
             {
                 return HttpNotFound();
             }
             return View(post);
-        }
-
-        // GET: Posts/Create
-        public ActionResult Create()
-        {
-            return View();
-        }
-
-        // POST: Posts/Create
-        // 過多ポスティング攻撃を防止するには、バインド先とする特定のプロパティを有効にしてください。
-        // 詳細については、http://go.microsoft.com/fwlink/?LinkId=317598 を参照してください。
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,Title,Description,Published")] Post post)
-        {
-            if (ModelState.IsValid)
-            {
-                db.Posts.Add(post);
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
-
-            return View(post);
-        }
-
-        // GET: Posts/Edit/5
-        public ActionResult Edit(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Post post = db.Posts.Find(id);
-            if (post == null)
-            {
-                return HttpNotFound();
-            }
-            return View(post);
-        }
-
-        // POST: Posts/Edit/5
-        // 過多ポスティング攻撃を防止するには、バインド先とする特定のプロパティを有効にしてください。
-        // 詳細については、http://go.microsoft.com/fwlink/?LinkId=317598 を参照してください。
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,Title,Description,Published")] Post post)
-        {
-            if (ModelState.IsValid)
-            {
-                db.Entry(post).State = EntityState.Modified;
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
-            return View(post);
-        }
-
-        // GET: Posts/Delete/5
-        public ActionResult Delete(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Post post = db.Posts.Find(id);
-            if (post == null)
-            {
-                return HttpNotFound();
-            }
-            return View(post);
-        }
-
-        // POST: Posts/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int id)
-        {
-            Post post = db.Posts.Find(id);
-            db.Posts.Remove(post);
-            db.SaveChanges();
-            return RedirectToAction("Index");
         }
 
         [HttpPost]
         public ActionResult Dashboard()
         {
-            //ViewBag.Message = "Your contact page.";
-
             return View("Dashboard");
         }
 
@@ -202,36 +119,20 @@ namespace Blog.Controllers
 
             if (!string.IsNullOrEmpty(keyword))
             {
-                var postsFromDescription = db.Posts.Where(p => p.Description.Contains(keyword));
-                var postsFromTitle = db.Posts.Where(p => p.Title.Contains(keyword));
+                var postsFromDescription = DataContext.Current.Posts.Where(p => p.Description.Contains(keyword));
+                var postsFromTitle = DataContext.Current.Posts.Where(p => p.Title.Contains(keyword));
 
                 posts = postsFromDescription.Union(postsFromTitle).ToList();
             }
 
-            return View("Index", posts);
-        }
+            ViewData["yearList"] = Utils.getYearMonthList();
 
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing)
-            {
-                db.Dispose();
-            }
-            base.Dispose(disposing);
+            return View("Index", posts);
         }
 
         public ActionResult About()
         {
-            ViewBag.Message = "Your application description page.";
-
             return View();
         }
-
-        //public ActionResult Contact()
-        //{
-        //    ViewBag.Message = "Your contact page.";
-
-        //    return View();
-        //}
     }
 }

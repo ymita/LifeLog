@@ -4,6 +4,7 @@ namespace Blog.Models
     using System.Data.Entity;
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Linq;
+    using System.Web;
 
     public partial class DataContext : DbContext
     {
@@ -25,6 +26,32 @@ namespace Blog.Models
                 .HasForeignKey(e => e.Post_ID);
 
             modelBuilder.Entity<Dashboard>();
+        }
+
+
+        //One instance per request
+        private const string CacheKey = "__DataContext__";
+
+        public static bool HasCurrent
+        {
+            get { return HttpContext.Current.Items[CacheKey] != null; }
+        }
+
+        public static DataContext Current
+        {
+            get
+            {
+                var context = (DataContext)HttpContext.Current.Items[CacheKey];
+
+                if (context == null)
+                {
+                    context = new DataContext();
+
+                    HttpContext.Current.Items[CacheKey] = context;
+                }
+
+                return context;
+            }
         }
     }
 }

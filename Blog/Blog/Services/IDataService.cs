@@ -12,9 +12,9 @@ namespace Blog.Services
     {
         Dictionary<DateTime, int> getYearMonthList();
 
-        DbSet<Post> getPosts();
+        //DbSet<Post> getPosts();
 
-        bool savePost(Post post);
+        //bool savePost(Post post);
         //string getDescription(DataContext db);
     }
 }

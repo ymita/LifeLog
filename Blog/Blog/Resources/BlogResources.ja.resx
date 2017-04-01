@@ -156,6 +156,9 @@
   <data name="LogOff" xml:space="preserve">
     <value>ログオフ</value>
   </data>
+  <data name="Menu" xml:space="preserve">
+    <value>メニュー</value>
+  </data>
   <data name="PostedOn" xml:space="preserve">
     <value>投稿日時</value>
   </data>

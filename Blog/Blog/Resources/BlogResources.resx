@@ -156,6 +156,9 @@
   <data name="LogOff" xml:space="preserve">
     <value>Log Off</value>
   </data>
+  <data name="Menu" xml:space="preserve">
+    <value>Menu</value>
+  </data>
   <data name="PostedOn" xml:space="preserve">
     <value>Posted on</value>
   </data>

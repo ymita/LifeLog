@@ -28,11 +28,41 @@
                     <span class="icon-bar"></span>
                 </button>
                 @Html.ActionLink(@Blog.Resources.BlogResources.BlogName, "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                @{
+                    HttpRequestWrapper request = Request as HttpRequestWrapper;
+                    string controllerPath = request.Path.Split('/')[1];
+                    if (controllerPath == "Dashboard")
+                    {
+                        <span style="margin-left: 3px;
+                                border-left: 1px solid white;
+                                margin-top: 16px;
+                                height:12px;"
+                                class="navbar-brand"
+                                id="menuLabel">
+                        </span>
+
+                        string actionPath = request.Path.Split('/')[2];
+                        string menuLabel = "";
+                        if (actionPath == "AllPosts")
+                        {
+                            menuLabel = Blog.Resources.BlogResources.AllPosts;
+                        }
+                        if (actionPath == "Create")
+                        {
+                            menuLabel = Blog.Resources.BlogResources.Create;
+                        }
+                        if (actionPath == "Configuration")
+                        {
+                            menuLabel = Blog.Resources.BlogResources.Configuration;
+                        }
+                        @Html.Label(menuLabel, new { @class = "navbar-brand" })
+                    }
+                }
             </div>
             <div class="navbar-collapse collapse">
                 @*Hide "Detail" and "Contact" links while viewing Dashboard page*@
                 @{
-                    HttpRequestWrapper request = Request as HttpRequestWrapper;
+                    //HttpRequestWrapper request = Request as HttpRequestWrapper;
                     if (request != null)
                     {
                         if (!request.Path.Contains("Dashboard"))

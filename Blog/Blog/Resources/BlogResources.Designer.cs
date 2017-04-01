@@ -178,6 +178,15 @@ namespace Blog.Resources {
         }
         
         /// <summary>
+        ///   Menu に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string Menu {
+            get {
+                return ResourceManager.GetString("Menu", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Posted on に類似しているローカライズされた文字列を検索します。
         /// </summary>
         public static string PostedOn {

@@ -198,11 +198,14 @@ namespace Blog.Controllers
         [HttpGet]
         public ActionResult Search(string keyword)
         {
-            IList<Post> posts = new List<Post>();
+            IEnumerable<Post> posts = new List<Post>();
 
             if (!string.IsNullOrEmpty(keyword))
             {
-                posts = db.Posts.Where(p => p.Description.Contains(keyword)).ToList();
+                var postsFromDescription = db.Posts.Where(p => p.Description.Contains(keyword));
+                var postsFromTitle = db.Posts.Where(p => p.Title.Contains(keyword));
+
+                posts = postsFromDescription.Union(postsFromTitle).ToList();
             }
 
             return View("Index", posts);

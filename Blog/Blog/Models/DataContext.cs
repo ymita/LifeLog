@@ -34,7 +34,10 @@ namespace Blog.Models
 
         public static bool HasCurrent
         {
-            get { return HttpContext.Current.Items[CacheKey] != null; }
+            get
+            {
+                return HttpContext.Current.Items[CacheKey] != null;
+            }
         }
 
         public static DataContext Current

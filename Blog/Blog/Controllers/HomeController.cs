@@ -190,7 +190,7 @@ namespace Blog.Controllers
         [HttpPost]
         public ActionResult Dashboard()
         {
-            ViewBag.Message = "Your contact page.";
+            //ViewBag.Message = "Your contact page.";
 
             return View("Dashboard");
         }
@@ -227,11 +227,11 @@ namespace Blog.Controllers
             return View();
         }
 
-        public ActionResult Contact()
-        {
-            ViewBag.Message = "Your contact page.";
+        //public ActionResult Contact()
+        //{
+        //    ViewBag.Message = "Your contact page.";
 
-            return View();
-        }
+        //    return View();
+        //}
     }
 }

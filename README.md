@@ -6,6 +6,7 @@ A simple blog based on ASP.NET MVC
 - User account management
 - Multiple language support (Japanese and English are supported so far.)
 - Bootstrap theme with material design
+- Search blog posts by keyword
 
 ## Development environment
 - Visual Studio 2015

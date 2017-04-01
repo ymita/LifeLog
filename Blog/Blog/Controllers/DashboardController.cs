@@ -1,4 +1,5 @@
 ﻿using Blog.Models;
+using Blog.Services;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -12,6 +13,12 @@ namespace Blog.Controllers
     public class DashboardController : Controller
     {
         private DataContext db = new DataContext();
+        IDataService _dataService;
+
+        public DashboardController()
+        {
+            _dataService = DataService.Instance;
+        }
 
         // GET: Dashboard
         public ActionResult Index()

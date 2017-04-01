@@ -14,7 +14,7 @@ namespace Blog.Services
 
         DbSet<Post> getPosts();
 
-        bool addPost(Post post);
-        string getDescription();
+        bool savePost(Post post);
+        //string getDescription(DataContext db);
     }
 }

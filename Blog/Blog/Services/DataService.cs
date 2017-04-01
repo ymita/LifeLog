@@ -61,7 +61,7 @@ namespace Blog.Services
             throw new NotImplementedException();
         }
 
-        public bool addPost(Post post)
+        public bool savePost(Post post)
         {
             bool result = false;
             try
@@ -76,12 +76,6 @@ namespace Blog.Services
                 System.Diagnostics.Debug.WriteLine(ex.Message);
             }
             return result;
-        }
-
-        public string getDescription()
-        {
-            string description = db.Dashboards.First().Description.ToString();
-            return description;
         }
 
         //public void Dispose()

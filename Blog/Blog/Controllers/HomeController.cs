@@ -122,7 +122,7 @@ namespace Blog.Controllers
                 var postsFromDescription = DataContext.Current.Posts.Where(p => p.Description.Contains(keyword));
                 var postsFromTitle = DataContext.Current.Posts.Where(p => p.Title.Contains(keyword));
 
-                posts = postsFromDescription.Union(postsFromTitle).ToList();
+                posts = postsFromDescription.Union(postsFromTitle).OrderByDescending(p=>p.Published).ToList();
             }
 
             ViewData["yearList"] = Utils.getYearMonthList();

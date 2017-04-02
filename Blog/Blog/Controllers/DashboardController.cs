@@ -12,12 +12,9 @@ namespace Blog.Controllers
 {
     public class DashboardController : Controller
     {
-        //private DataContext db = new DataContext();
-        //IDataService _dataService;
-
         public DashboardController()
         {
-            //_dataService = DataService.Instance;
+            
         }
 
         // GET: Dashboard
@@ -168,14 +165,5 @@ namespace Blog.Controllers
 
             return View("Dashboard");
         }
-
-        //protected override void Dispose(bool disposing)
-        //{
-        //    if (disposing)
-        //    {
-        //        db.Dispose();
-        //    }
-        //    base.Dispose(disposing);
-        //}
     }
 }

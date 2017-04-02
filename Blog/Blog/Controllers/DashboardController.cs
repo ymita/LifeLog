@@ -1,17 +1,23 @@
 ﻿using Blog.Models;
 using Blog.Services;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using System.Net;
+using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Script.Serialization;
 
 namespace Blog.Controllers
 {
     public class DashboardController : Controller
     {
+        private int StartIndex = 0;
+        private static readonly int PageCount = 10;
+
         public DashboardController()
         {
             
@@ -25,9 +31,6 @@ namespace Blog.Controllers
 
         public ActionResult AllPosts(int? index)
         {
-            int _startIndex = 0;
-            int pageCount = 20;
-
             if (index != null)
             {
                 // index = 1 は 0 にしたい。
@@ -35,19 +38,18 @@ namespace Blog.Controllers
                 {
                     index = index - 1;
                 }
-                _startIndex = (int)index * pageCount;
+                StartIndex = (int)index * PageCount;
             }
 
-            int _endIndex = _startIndex + pageCount;
+            int _endIndex = StartIndex + PageCount;
 
 
             // ページャー用に記事総数を設定
             int articleCount = DataContext.Current.Posts.Count();
-            //classify = (input > 0) ? "positive" : "negative";
-            ViewBag.Pages = (articleCount % pageCount == 0) ? articleCount / pageCount : (articleCount / pageCount) + 1;
-            //ViewBag.Pages = articleCount / pageCount;
+            ViewBag.Pages = (articleCount % PageCount == 0) ? articleCount / PageCount : (articleCount / PageCount) + 1;
+            
             // 記事を取得
-            List<Post> list = DataContext.Current.Posts.OrderByDescending(a => a.ID).Skip(_startIndex).Take(_endIndex - _startIndex).ToList();
+            List<Post> list = DataContext.Current.Posts.OrderByDescending(a => a.ID).Skip(StartIndex).Take(_endIndex - StartIndex).ToList();
 
             int charCount = 100;
             for (int i = 0; i < list.Count; i++)
@@ -59,10 +61,60 @@ namespace Blog.Controllers
                 }
 
             }
+            
             // 記事をリターン
             return View(list);
         }
 
+        public ActionResult Draft(int? index)
+        {
+            if (index != null)
+            {
+                // index = 1 は 0 にしたい。
+                if (index > 0)
+                {
+                    index = index - 1;
+                }
+                StartIndex = (int)index * PageCount;
+            }
+
+            int _endIndex = StartIndex + PageCount;
+
+
+            // ページャー用に記事総数を設定
+            int articleCount = DataContext.Current.Posts.Where(p=>p.IsDraft == true).Count();
+            ViewBag.Pages = (articleCount % PageCount == 0) ? articleCount / PageCount : (articleCount / PageCount) + 1;
+            // 記事を取得
+            List<Post> list = DataContext.Current.Posts.Where(p => p.IsDraft == true).OrderByDescending(a => a.ID).Skip(StartIndex).Take(_endIndex - StartIndex).ToList();
+            
+            // 記事をリターン
+            return View("AllPosts", list);
+        }
+
+        public ActionResult Published(int? index)
+        {
+            if (index != null)
+            {
+                // index = 1 は 0 にしたい。
+                if (index > 0)
+                {
+                    index = index - 1;
+                }
+                StartIndex = (int)index * PageCount;
+            }
+
+            int _endIndex = StartIndex + PageCount;
+
+
+            // ページャー用に記事総数を設定
+            int articleCount = DataContext.Current.Posts.Where(p => p.IsDraft == false).Count();
+            ViewBag.Pages = (articleCount % PageCount == 0) ? articleCount / PageCount : (articleCount / PageCount) + 1;
+            // 記事を取得
+            List<Post> list = DataContext.Current.Posts.Where(p => p.IsDraft == false).OrderByDescending(a => a.ID).Skip(StartIndex).Take(_endIndex - StartIndex).ToList();
+            
+            // 記事をリターン
+            return View("AllPosts", list);
+        }
 
         // GET: Posts/Create
         public ActionResult Create()

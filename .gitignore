@@ -106,3 +106,5 @@ Blog/.vs/Blog/v14/.suo
 /Blog/Blog.Tests/obj/Debug/Blog.Tests.csprojResolveAssemblyReference.cache
 /Blog/Blog.Tests/obj/Debug/Blog.Tests.csproj.FileListAbsolute.txt
 Blog/Blog.Tests/obj/Debug/build.force
+Blog/Blog/App_Data/Lifelog.mdf
+Blog/Blog/App_Data/Lifelog.mdf

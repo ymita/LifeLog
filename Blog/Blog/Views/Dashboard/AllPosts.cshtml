@@ -107,7 +107,10 @@
                         @for (int i = 1; i <= @ViewBag.Pages; i++)
                         {
                             <li>
-                                @Html.ActionLink(i.ToString(), "Index", new { index = i })
+                                @{
+                                    string actionName = (((HttpRequestWrapper)this.Request).Path).Split('/').Last();
+                                }   
+                                @Html.ActionLink(i.ToString(), actionName, new { index = i })
                             </li>
                         }
 

@@ -43,7 +43,7 @@
 
                         string actionPath = request.Path.Split('/')[2];
                         string menuLabel = "";
-                        if (actionPath == "AllPosts")
+                        if (actionPath == "AllPosts" || actionPath == "Published" || actionPath == "Draft")
                         {
                             menuLabel = Blog.Resources.BlogResources.AllPosts;
                         }

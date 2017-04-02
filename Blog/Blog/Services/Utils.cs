@@ -8,9 +8,6 @@ namespace Blog.Services
 {
     public static class Utils
     {
-        //private ILookup<DateTime, Post> _ordersByYearMonth;
-        //private Dictionary<DateTime, int> _yearmonthList;
-
         public static Dictionary<DateTime, int> getYearMonthList()
         {
             IEnumerable<Post> _posts = DataContext.Current.Posts.OrderByDescending(p => p.Published);
@@ -25,10 +22,7 @@ namespace Blog.Services
             // 年月ごとの記事数を算出
             foreach (var item in _ordersByYearMonth)
             {
-                //if (!_yearmonthList.Keys.Contains(item.Key))
-                //{
                 _yearmonthList.Add(item.Key, item.Count());
-                //}
             }
 
             #endregion

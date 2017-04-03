@@ -224,7 +224,7 @@ namespace Blog.Controllers
             return View("Dashboard");
         }
 
-        private void CalculatePostsCount()
+        public void CalculatePostsCount()
         {
             ViewBag.TotalPosts = DataContext.Current.Posts.Count();
             ViewBag.DrftPosts = DataContext.Current.Posts.Where(p => p.IsDraft == true).Count();

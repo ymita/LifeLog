@@ -61,11 +61,13 @@ namespace Blog.Controllers
                 }
 
             }
-            
+
+            //記事数のカウント
+            CalculatePostsCount();
             // 記事をリターン
             return View(list);
         }
-
+        
         public ActionResult Draft(int? index)
         {
             if (index != null)
@@ -86,7 +88,9 @@ namespace Blog.Controllers
             ViewBag.Pages = (articleCount % PageCount == 0) ? articleCount / PageCount : (articleCount / PageCount) + 1;
             // 記事を取得
             List<Post> list = DataContext.Current.Posts.Where(p => p.IsDraft == true).OrderByDescending(a => a.ID).Skip(StartIndex).Take(_endIndex - StartIndex).ToList();
-            
+
+            //記事数のカウント
+            CalculatePostsCount();
             // 記事をリターン
             return View("AllPosts", list);
         }
@@ -111,7 +115,9 @@ namespace Blog.Controllers
             ViewBag.Pages = (articleCount % PageCount == 0) ? articleCount / PageCount : (articleCount / PageCount) + 1;
             // 記事を取得
             List<Post> list = DataContext.Current.Posts.Where(p => p.IsDraft == false).OrderByDescending(a => a.ID).Skip(StartIndex).Take(_endIndex - StartIndex).ToList();
-            
+
+            //記事数のカウント
+            CalculatePostsCount();
             // 記事をリターン
             return View("AllPosts", list);
         }
@@ -216,6 +222,13 @@ namespace Blog.Controllers
             ViewBag.Message = "Your contact page.";
 
             return View("Dashboard");
+        }
+
+        private void CalculatePostsCount()
+        {
+            ViewBag.TotalPosts = DataContext.Current.Posts.Count();
+            ViewBag.DrftPosts = DataContext.Current.Posts.Where(p => p.IsDraft == true).Count();
+            ViewBag.PublishedPosts = DataContext.Current.Posts.Where(p => p.IsDraft == false).Count();
         }
     }
 }

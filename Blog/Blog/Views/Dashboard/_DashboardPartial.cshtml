@@ -8,16 +8,13 @@
     </li>
     <li class="list-group-item">
         <i class="material-icons media-left pmd-sm">create</i>
-        <span class="media-body">@Html.ActionLink(@Blog.Resources.BlogResources.AllPosts, "AllPosts", "Dashboard")</span>
+        <span class="media-body">@Html.ActionLink(@Blog.Resources.BlogResources.AllPosts+ ((ViewBag.TotalPosts != null) ? $"({ViewBag.TotalPosts})" : ""), "AllPosts", "Dashboard")</span>
         @{
-            List<Blog.Models.Post> posts = this.Model as List<Blog.Models.Post>;
-            if (posts != null && posts.Count > 0)
+            if (ViewBag.TotalPosts != null && ViewBag.TotalPosts > 0)
             {
-                int draftCount = posts.Where(p => p.IsDraft == true).Count();
-                int postCount = posts.Where(p => p.IsDraft == false).Count();
                 <ul>
-                    <li> @Html.ActionLink($"公開済み ({postCount})", "Published", "Dashboard")</li>
-                    <li> @Html.ActionLink($"下書き ({postCount})", "Draft", "Dashboard")</li>
+                    <li> @Html.ActionLink($"公開済み ({ViewBag.PublishedPosts})", "Published", "Dashboard")</li>
+                    <li> @Html.ActionLink($"下書き ({ViewBag.DrftPosts})", "Draft", "Dashboard")</li>
                 </ul>
             }
 

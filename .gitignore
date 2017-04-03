@@ -108,3 +108,5 @@ Blog/.vs/Blog/v14/.suo
 Blog/Blog.Tests/obj/Debug/build.force
 Blog/Blog/App_Data/Lifelog.mdf
 Blog/Blog/App_Data/Lifelog.mdf
+Blog/Blog/App_Data/Lifelog.mdf
+Blog/Blog/App_Data/Lifelog_log.ldf
